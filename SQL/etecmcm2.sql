@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07-Maio-2025 às 17:39
+-- Tempo de geração: 21-Maio-2025 às 17:45
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.1.2
 
@@ -44,7 +44,11 @@ INSERT INTO `categorias` (`id_categoria`, `nome_cat`) VALUES
 (3, 'Enlatados'),
 (4, 'Hortifruti'),
 (5, 'açougue'),
-(7, 'Laticinios');
+(7, 'Laticinios'),
+(8, 'Eletronicos'),
+(9, 'Hortfruti'),
+(10, 'Padaria'),
+(11, 'Utensilios');
 
 -- --------------------------------------------------------
 
@@ -58,8 +62,25 @@ CREATE TABLE `produtos` (
   `preco` decimal(10,2) DEFAULT NULL,
   `quant` int(11) DEFAULT NULL,
   `marca` varchar(255) DEFAULT NULL,
-  `id_categoria` int(11) DEFAULT NULL
+  `id_categoria` int(11) DEFAULT NULL,
+  `unidade_medida` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `produtos`
+--
+
+INSERT INTO `produtos` (`id_produto`, `nome`, `preco`, `quant`, `marca`, `id_categoria`, `unidade_medida`) VALUES
+(1, 'Sabão em Pó', '30.50', 50, 'OMO', 1, 'un'),
+(2, 'Detergente', '3.55', 10, 'Ype', 1, 'un'),
+(3, 'Mortadela_KG', '22.50', 50, 'Sadia', 2, 'kg'),
+(4, 'Mussarela', '33.99', 50, 'Aurora', 2, 'kg'),
+(5, 'Feijão', '6.90', 100, 'Bordom', 3, 'un'),
+(6, 'Sopa', '20.99', 50, 'Campbell', 3, 'un'),
+(7, 'Maçã', '16.99', 100, 'Turma da Monica', 4, 'kg'),
+(8, 'Laranja_saco', '74.99', 20, 'Unifrutas', 4, 'kg'),
+(9, 'Salsicha', '17.99', 70, 'Perdigão', 5, 'kg'),
+(10, 'Linguiça', '26.99', 70, 'Seara', 5, 'kg');
 
 --
 -- Índices para tabelas despejadas
@@ -86,13 +107,13 @@ ALTER TABLE `produtos`
 -- AUTO_INCREMENT de tabela `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id_produto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_produto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restrições para despejos de tabelas
